@@ -1,0 +1,14 @@
+
+- name: Create interface within Nautobot with only required information
+  networktocode.nautobot.vm_interface:
+    url: "{{ nautobot_url }}"
+    token: "{{ nautobot_token }}"
+    validate_certs: False
+    virtual_machine: "{{ vm_name }}"
+    name: "{{ vm_name.interface1 }}"
+    state: present
+    mode: "{{ vm_name.interface1.mode }}"
+    untagged_vlan:
+      name: "{{ vlan_name }}"
+      site: "{{ DataCentre }}"
+    enabled: yes
