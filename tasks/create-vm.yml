@@ -1,0 +1,22 @@
+
+- name: Create vcpus, memory and disk of an existing virtual machine
+  networktocode.nautobot.virtual_machine:
+    url: "{{ nautobot_url }}"
+    token: "{{ nautobot_token }}"
+    validate_certs: False
+    name: "{{ vm_name }}"
+    tags:
+      - "{{ vm_tag }}"
+    site: "{{ DataCentre }}"
+    cluster: "{{ dc.cluster }}"
+    vcpus: "{{ vm-size.cpu }}"
+    memory: "{{ vm-size.memory }}"
+    disk: "{{ vm-size.disk1-size }}"
+    state: present
+    status: active
+  register: vm_result
+
+- name: "Ensure {{ vm_name }} doesn't already exist"
+  fail:
+    msg: "{{ result.msg }}"
+  when: "'already exists' in result.msg"

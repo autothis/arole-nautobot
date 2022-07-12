@@ -1,7 +1,7 @@
-Role Name
+arole-nautobot
 =========
 
-A brief description of the role goes here.
+Everything ansible nautobot related in one place
 
 Requirements
 ------------
@@ -12,6 +12,35 @@ Role Variables
 --------------
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+
+Input Variables
+General
+"{{ nautobot_url }}"
+"{{ nautobot_token }}"
+
+Tenant's
+"{{ ClientCode }}" - Tenant name (could be short or full)
+"{{ ClientDescription }}" - Full Tenant name or description
+
+VM's
+"{{ vm_name }}"
+"{{ vm_tag }}"
+"{{ DataCentre }}"
+"{{ dc.cluster }}"
+"{{ vm-size.cpu }}"
+"{{ vm-size.memory }}"
+"{{ vm-size.disk1-size }}"
+
+VM Interfaces
+"{{ vm_name }}"
+"{{ vm_name.interface1 }}"
+"{{ vm_name.interface1.mode }}"
+"{{ vlan_name }}"
+"{{ DataCentre }}"
+
+Regiser values - used for display during or after automation to supply as built documentation
+nb_tenant - documentation
+vm_result - exsists or not 
 
 Dependencies
 ------------
@@ -30,7 +59,7 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+GNU GPLv32
 
 Author Information
 ------------------

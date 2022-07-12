@@ -1,0 +1,14 @@
+
+- name: Create Nautobot tenant
+  networktocode.nautobot.tenant:
+    url: "{{ nautobot_url }}"
+    token: "{{ nautobot_token }}"
+    name: "{{ ClientCode }}"
+    description: "{{ ClientDescription }}"
+    state: present
+  register: nb_tenant
+
+- name: "Print tenant output"
+  debug:
+    msg: "{{ nb_tenant }}"
+  when: show_debug | bool
