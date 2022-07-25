@@ -15,32 +15,55 @@ A description of the settable variables for this role should go here, including 
 
 Input Variables
 General
-"{{ nautobot_url }}"
-"{{ nautobot_token }}"
+- "{{ nautobot_url }}"
+- "{{ nautobot_token }}"
 
 Tenant's
-"{{ ClientCode }}" - Tenant name (could be short or full)
-"{{ ClientDescription }}" - Full Tenant name or description
+- "{{ ClientCode }}" - Tenant name (could be short or full)
+- "{{ ClientDescription }}" - Full Tenant name or description
 
 VM's
-"{{ vm_name }}"
-"{{ vm_tag }}"
-"{{ DataCentre }}"
-"{{ dc.cluster }}"
-"{{ vm-size.cpu }}"
-"{{ vm-size.memory }}"
-"{{ vm-size.disk1-size }}"
+- "{{ vm_name }}"
+- "{{ vm_tag }}"
+- "{{ DataCentre }}"
+- "{{ dc.cluster }}"
+- "{{ vm-size.cpu }}"
+- "{{ vm-size.memory }}"
+- "{{ vm-size.disk1-size }}"
 
 VM Interfaces
-"{{ vm_name }}"
-"{{ vm_name.interface1 }}"
-"{{ vm_name.interface1.mode }}"
-"{{ vlan_name }}"
-"{{ DataCentre }}"
+- "{{ vm_name }}"
+- "{{ vm_name.interface1 }}"
+- "{{ vm_name.interface1.mode }}"
+- "{{ vlan_name }}"
+- "{{ DataCentre }}"
 
 Regiser values - used for display during or after automation to supply as built documentation
-nb_tenant - documentation
-vm_result - exsists or not 
+- nb_tenant - documentation
+- vm_result - exsists or not 
+
+
+Environmental Variables
+<db_password>
+<napalm_username>
+<napalm_password>
+<redis_password>
+<pgppassword>
+<psql_password>
+<superuser_email>
+<superuser_password>
+<superuser_token>
+<ldap_uri>
+<ldap_bind_dn>
+<ldap_bind_password>
+<nautobot_secret_key>
+<nautobot_allowed_hosts>
+
+Look up
+nautobot_url
+nautobot_token
+nautobot_VM_role
+
 
 Dependencies
 ------------
