@@ -44,20 +44,20 @@ Regiser values - used for display during or after automation to supply as built 
 
 
 Environmental Variables
-<db_password>
-<napalm_username>
-<napalm_password>
-<redis_password>
-<pgppassword>
-<psql_password>
-<superuser_email>
-<superuser_password>
-<superuser_token>
-<ldap_uri>
-<ldap_bind_dn>
-<ldap_bind_password>
-<nautobot_secret_key>
-<nautobot_allowed_hosts>
+- <db_password>
+- <napalm_username>
+- <napalm_password>
+- <redis_password>
+- <pgppassword>
+- <psql_password>
+- <superuser_email>
+- <superuser_password>
+- <superuser_token>
+- <ldap_uri>
+- <ldap_bind_dn>
+- <ldap_bind_password>
+- <nautobot_secret_key>
+- <nautobot_allowed_hosts>
 
 Look up
 nautobot_url
