@@ -43,6 +43,9 @@ Regiser values - used for display during or after automation to supply as built 
 - vm_result - exsists or not 
 
 
+Lookup Variables
+- {{ nb_device_role }} - Device role (slug) in Nautobot
+
 Environmental Variables
 - <db_password>
 - <napalm_username>
