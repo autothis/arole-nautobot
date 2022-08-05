@@ -5,7 +5,7 @@
   set_fact:
     query_string: |
       query {
-        devices(role: "{{ nb_device_role }}", has_primary_ip: true) {
+        "{{ nb_device_category }}""(role: "{{ nb_device_role }}", status: ""{{ nb_device_status }}"", has_primary_ip: true) {
           name
           primary_ip4 {
             address
@@ -16,6 +16,6 @@
 - name: Nautobot - Get all devices of role type "{{ nb_device_role }}"
   set_fact:
     query_response: "{{ query('networktocode.nautobot.lookup_graphql', query_string,
-                            url="{{ nautobot_url }}"',
-                            token="{{ nautobot_token }}",
+                            url="{{ nb_url }}"',
+                            token="{{ nb_token }}",
                             validate_certs=false) }}"

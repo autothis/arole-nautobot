@@ -1,13 +1,13 @@
 
 - name: Create vcpus, memory and disk of an existing virtual machine
   networktocode.nautobot.virtual_machine:
-    url: "{{ nautobot_url }}"
-    token: "{{ nautobot_token }}"
+    url: "{{ nb_url }}"
+    token: "{{ nb_token }}"
     validate_certs: False
     name: "{{ vm_name }}"
     tags:
       - "{{ vm_tag }}"
-    site: "{{ DataCentre }}"
+    site: "{{ datacentre }}"
     cluster: "{{ dc.cluster }}"
     vcpus: "{{ vm-size.cpu }}"
     memory: "{{ vm-size.memory }}"
