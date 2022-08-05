@@ -16,6 +16,6 @@
 - name: Nautobot - Get all devices of role type "{{ nb_device_role }}"
   set_fact:
     query_response: "{{ query('networktocode.nautobot.lookup_graphql', query_string,
-                            url="{{ nautobot_url }}"',
-                            token="{{ nautobot_token }}",
+                            url="{{ nb_url }}"',
+                            token="{{ nb_token }}",
                             validate_certs=false) }}"

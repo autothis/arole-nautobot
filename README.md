@@ -15,17 +15,17 @@ A description of the settable variables for this role should go here, including 
 
 Input Variables
 General
-- "{{ nautobot_url }}"
-- "{{ nautobot_token }}"
+- "{{ nb_url }}"
+- "{{ nb_token }}"
 
 Tenant's
-- "{{ ClientCode }}" - Tenant name (could be short or full)
-- "{{ ClientDescription }}" - Full Tenant name or description
+- "{{ clientcode }}" - Tenant name (could be short or full)
+- "{{ clientdescription }}" - Full Tenant name or description
 
 VM's
 - "{{ vm_name }}"
 - "{{ vm_tag }}"
-- "{{ DataCentre }}"
+- "{{ datacentre }}"
 - "{{ dc.cluster }}"
 - "{{ vm-size.cpu }}"
 - "{{ vm-size.memory }}"
@@ -39,12 +39,12 @@ VM Interfaces
 - "{{ DataCentre }}"
 
 Lookup Variables
-- {{ nb_device_category }} - device category (devices or virtual-machines)
-- {{ nb_device_role }} - device role (slug) in nautobot
+- "{{ nb_device_category }}" - device category (devices or virtual-machines)
+- "{{ nb_device_role }}" - device role (slug) in nautobot
 
 Regiser values - used for display during or after automation to supply as built documentation
 - nb_tenant - documentation
-- vm_result - exsists or not 
+- vm_result - exsists or not
 
 Environmental Variables
 - <db_password>
