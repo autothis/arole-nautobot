@@ -5,7 +5,7 @@
   set_fact:
     query_string: |
       query {
-        "{{ nb_device_category }}""(role: "{{ nb_device_role }}", has_primary_ip: true) {
+        "{{ nb_device_category }}""(role: "{{ nb_device_role }}", status: ""{{ nb_device_status }}"", has_primary_ip: true) {
           name
           primary_ip4 {
             address
