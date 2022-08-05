@@ -98,6 +98,6 @@ Author Information
 @dbrown-auto - My first public repo and largely a side project
 
 Credit to:
-@TSheahanAtSpirit - for the work on the docker environment.
-@nitperry - ongoing assiting with building the tasks
+- @TSheahanAtSpirit - for the work on the docker environment.
+- @nitperry - ongoing assistance with building the tasks
 
