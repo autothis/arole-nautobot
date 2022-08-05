@@ -38,13 +38,13 @@ VM Interfaces
 - "{{ vlan_name }}"
 - "{{ DataCentre }}"
 
+Lookup Variables
+- {{ nb_device_category }} - device category (devices or virtual-machines)
+- {{ nb_device_role }} - device role (slug) in nautobot
+
 Regiser values - used for display during or after automation to supply as built documentation
 - nb_tenant - documentation
 - vm_result - exsists or not 
-
-
-Lookup Variables
-- {{ nb_device_role }} - Device role (slug) in Nautobot
 
 Environmental Variables
 - <db_password>
@@ -61,12 +61,6 @@ Environmental Variables
 - <ldap_bind_password>
 - <nautobot_secret_key>
 - <nautobot_allowed_hosts>
-
-Look up
-nautobot_url
-nautobot_token
-nautobot_VM_role
-
 
 Dependencies
 ------------
