@@ -1,10 +1,10 @@
 
 - name: Create Nautobot tenant
   networktocode.nautobot.tenant:
-    url: "{{ nautobot_url }}"
-    token: "{{ nautobot_token }}"
-    name: "{{ ClientCode }}"
-    description: "{{ ClientDescription }}"
+    url: "{{ nb_url }}"
+    token: "{{ nb_token }}"
+    name: "{{ clientcode }}"
+    description: "{{ clientdescription }}"
     state: present
   register: nb_tenant
 

@@ -15,35 +15,48 @@ A description of the settable variables for this role should go here, including 
 
 Input Variables
 General
-- "{{ nautobot_url }}"
-- "{{ nautobot_token }}"
+- "{{ nb_url }}"
+- "{{ nb_token }}"
 
 Tenant's
-- "{{ ClientCode }}" - Tenant name (could be short or full)
-- "{{ ClientDescription }}" - Full Tenant name or description
+tasks/create-tenant.yml
 
-VM's
+- "{{ clientcode }}" - Tenant name (could be short or full)
+- "{{ clientdescription }}" - Full Tenant name or description
+
+Create vm - 
+tasks/create-vm.yml
+
 - "{{ vm_name }}"
 - "{{ vm_tag }}"
-- "{{ DataCentre }}"
+- "{{ datacentre }}"
 - "{{ dc.cluster }}"
 - "{{ vm-size.cpu }}"
 - "{{ vm-size.memory }}"
 - "{{ vm-size.disk1-size }}"
 
-VM Interfaces
+VM Interfaces - (virtual machines only)
+tasks/create-vm-interface.yml
+
 - "{{ vm_name }}"
 - "{{ vm_name.interface1 }}"
 - "{{ vm_name.interface1.mode }}"
 - "{{ vlan_name }}"
-- "{{ DataCentre }}"
+- "{{ datacentre }}"
+
+Lookup with Variables - (devices or virtual_machines)
+tasks/lookupgql_primary_ip.yml
+
+- "{{ nb_device_category }}" - device category
+- "{{ nb_device_role }}" - device role (slug) in nautobot
+- "{{ nb_device_status }}" - device status (slug) in nautobot. active, decommisioned, staged, planned, offline, failed
 
 Regiser values - used for display during or after automation to supply as built documentation
 - nb_tenant - documentation
-- vm_result - exsists or not 
+- vm_result - exsists or not
 
-
-Environmental Variables
+Environmental Variables - Docker spin up
+files/nautobotenv.env
 - <db_password>
 - <napalm_username>
 - <napalm_password>
@@ -77,7 +90,8 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: username.rolename }
+
 
 License
 -------
@@ -87,4 +101,9 @@ GNU GPLv32
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+@dbrown-auto - My first public repo and largely a side project
+
+Credit to:
+- @TSheahanAtSpirit - for the work on the docker environment.
+- @nitperry - ongoing assistance with building the tasks
+
