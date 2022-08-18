@@ -13,7 +13,7 @@ FROM networktocode/nautobot:${NAUTOBOT_VERSION}-py${PYTHON_VER} as base
 
 USER 0
 RUN apt-get update -y && \
-    apt-get install -y libldap2-dev libsasl2-dev libssl-dev findutils grep vim-tiny
+    apt-get install -y findutils grep vim-tiny
 
 # ---------------------------------
 # Stage: Builder
@@ -29,7 +29,7 @@ RUN apt-get install -y gcc && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade pip wheel && \
-    pip3 install django-auth-ldap nautobot_plugin_nornir nautobot-golden-config nautobot-device-onboarding nautobot-netbox-importer
+    pip3 install django-auth-ldap nautobot_plugin_nornir nautobot-golden-config nautobot-device-onboarding nautobot-netbox-importer nautobot_ssot nautobot_ssot_vsphere
 
 # ---------------------------------
 # Stage: Final

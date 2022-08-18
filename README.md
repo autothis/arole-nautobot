@@ -60,9 +60,9 @@ Environmental Variables
 - <nautobot_allowed_hosts>
 
 Look up
-nautobot_url
-nautobot_token
-nautobot_VM_role
+- nautobot_url
+- nautobot_token
+- nautobot_VM_role
 
 
 Dependencies
