@@ -1,4 +1,4 @@
-
+---
 - name: Create interface within Nautobot with only required information
   networktocode.nautobot.vm_interface:
     url: "{{ nb_url }}"

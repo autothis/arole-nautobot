@@ -1,4 +1,4 @@
-
+---
 - name: Create Nautobot tenant
   networktocode.nautobot.tenant:
     url: "{{ nb_url }}"
