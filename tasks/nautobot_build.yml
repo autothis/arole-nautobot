@@ -1,0 +1,21 @@
+---
+- name: Build docker-compose
+  blockinfile:
+    create: yes
+    path: /home/docker/homeserver/docker-compose.yml
+    block: |
+       version: '3.4'
+       services:
+         caddy:
+           container_name: caddy
+           image: caddy:2-alpine
+           restart: unless-stopped
+           depends_on:
+             - nautobot
+           ports:
+             - "80:80"
+             - "443:443"
+           volumes:
+             - /home/docker/caddy/Caddyfile:/etc/caddy/Caddyfile
+             - /home/docker/caddy/data:/data
+             - /home/docker/caddy/config:/config

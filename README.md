@@ -56,6 +56,10 @@ Regiser values - used for display during or after automation to supply as built 
 - vm_result - exsists or not
 
 Environmental Variables - Docker spin up
+Caddyfile
+- <letsencrypt_email>
+- <nautobot_domain>
+
 files/nautobotenv.env
 - <db_password>
 - <napalm_username>
