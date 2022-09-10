@@ -1,0 +1,103 @@
+---
+# this variant aims to compose nautobot + ldap for wsgi to provided nginx
+# https://docs.docker.com/compose/compose-file/compose-file-v3/
+version: "3.7"
+networks:
+  default:
+  local-nginx:
+    external: true  # require an extant bridge published by the nginx container
+services:
+  nautobot:
+    image: "/nautobot-ldap-wsgi"
+    build:
+      args:
+        PYTHON_VER: "${PYTHON_VER:-3.9}"
+      context: "./"
+      dockerfile: "Dockerfile"
+      target: "final"
+    env_file:
+      - "nautobot.env"
+      - "-release.env"
+    restart: "unless-stopped"
+    depends_on:
+      - "postgres"
+      - "redis"
+    volumes:
+      - ./nautobot_config.py:/opt/nautobot/nautobot_config.py  # providing custom LDAP config
+      - ./uwsgi.ini:/opt/nautobot/uwsgi.ini  # use the config for hosting wsgi
+      - /home/nautobot/nb-devel-media:/opt/nautobot/media  # support host backup rsync
+      - /home/nautobot/nb-devel-static:/opt/nautobot/static  # support host backup rsync
+    networks:
+      default:
+      local-nginx:
+        ipv4_address: "172.21.4.6"
+  nautobot-worker:
+    build:
+      args:
+        PYTHON_VER: "${PYTHON_VER:-3.9}"
+      context: "./"
+      dockerfile: "Dockerfile"
+      target: "final"
+    image: "/nautobot-ldap-wsgi"
+    env_file:
+      - "nautobot.env"
+      - "-release.env"
+    entrypoint: "nautobot-server rqworker"
+    depends_on:
+      - "nautobot"
+      - "redis"
+    restart: "unless-stopped"
+    volumes:
+      - ./nautobot_config.py:/opt/nautobot/nautobot_config.py
+    healthcheck:
+      interval: "15s"
+      timeout: "10s"
+      start_period: "5s"
+      retries: 3
+      test: ["CMD", "nautobot-server", "health_check"]
+  celery_worker:
+    build:
+      args:
+        PYTHON_VER: "${PYTHON_VER:-3.9}"
+      context: "./"
+      dockerfile: "Dockerfile"
+      target: "final"
+    image: "/nautobot-ldap-wsgi"
+    entrypoint: "sh -c 'nautobot-server celery worker -l $$NAUTOBOT_LOG_LEVEL'"
+    volumes:
+      - ./nautobot_config.py:/opt/nautobot/nautobot_config.py  # providing custom  LDAP config
+    healthcheck:
+      interval: "30s"
+      timeout: "10s"
+      start_period: "30s"
+      retries: 3
+      test: ["CMD", "bash", "-c", "nautobot-server celery inspect ping --destination celery@$$HOSTNAME"]  ## $$ because of docker-compose
+    depends_on:
+      - "nautobot"
+      - "redis"
+    env_file:
+      - "nautobot.env"
+      - "-release.env"
+    tty: true
+    restart: "unless-stopped"
+  redis:
+    image: "redis:alpine"
+    env_file:
+      - "nautobot.env"
+      - "built-release.env"
+    command:
+      - "sh"
+      - "-c"  # this is to evaluate the $REDIS_PASSWORD from the env
+      - "redis-server --appendonly yes --requirepass $$NAUTOBOT_REDIS_PASSWORD"  ## $$ because of docker-compose
+    restart: "unless-stopped"
+  postgres:
+    image: "postgres:14.1"
+    env_file:
+      - "nautobot.env"
+      - "built-release.env"
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+      - /home/nautobot/db_backup1:/db_backup # shared storage of backups
+    restart: "unless-stopped"
+volumes:
+  postgres_data:

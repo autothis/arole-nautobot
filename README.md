@@ -15,6 +15,7 @@ A description of the settable variables for this role should go here, including 
 
 Input Variables
 General
+
 - "{{ nb_url }}"
 - "{{ nb_token }}"
 
