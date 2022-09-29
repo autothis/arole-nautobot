@@ -1,5 +1,6 @@
 plugin: networktocode.nautobot.inventory
 api_endpoint: https://nautobot-staging.spirit.net.au/
+token: bg7kKw3RFShrNwkSMd5bW46F2nHkR6ED
 validate_certs: True
 config_context: False
 group_by:
