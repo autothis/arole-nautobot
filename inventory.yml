@@ -1,15 +1,10 @@
 plugin: networktocode.nautobot.inventory
-api_endpoint: "{{ nautobot_url }}"
-token: "{{ nautobot_token }}"
+api_endpoint: https://nautobot-staging.spirit.net.au/
 validate_certs: True
-config_context: True
+config_context: False
 group_by:
-  - sites
-query_filters:
-  - role: core-switch
+  - device_roles
+#query_filters:
+#  - role: customer-firewall
 device_query_filters:
   - has_primary_ip: 'true'
-
-
-
-
