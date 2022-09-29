@@ -1,1 +1,5 @@
-networktocode.nautobot
+---
+collections:
+  # Install a collection from Ansible Galaxy.
+  - name: networktocode.nautobot
+    source: https://galaxy.ansible.com
