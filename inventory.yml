@@ -6,5 +6,5 @@ group_by:
   - device_roles
 #query_filters:
 #  - role: customer-firewall
-device_query_filters:
-  - has_primary_ip: 'true'
+#device_query_filters:
+#  - has_primary_ip: 'true'
