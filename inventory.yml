@@ -1,11 +1,11 @@
 plugin: networktocode.nautobot.inventory
-api_endpoint: 
-token: <nb_token>
+api_endpoint: "{{ nautobot_url }}"
+token: "{{ nautobot_token }}"
 validate_certs: True
-config_context: False
+config_context: True
 group_by:
-  - device_roles
+  - sites
 query_filters:
-  - role: customer-firewall
+  - role: core-switch
 device_query_filters:
   - has_primary_ip: 'true'
