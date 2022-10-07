@@ -5,7 +5,7 @@ validate_certs: True
 config_context: True
 group_by:
   - sites
-#query_filters:
-#  - role: "{{ nb_device_role }}"
+query_filters:
+  - role: "{{ nb_device_role }}"
 device_query_filters:
   - has_primary_ip: 'true'
