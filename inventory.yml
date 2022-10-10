@@ -3,7 +3,7 @@ plugin: networktocode.nautobot.inventory
 api_endpoint: "{{ nautobot_url }}"
 token: "{{ nautobot_token }}"
 validate_certs: True
-config_context: True
+config_context: False
 group_by:
   - sites
 query_filters:
