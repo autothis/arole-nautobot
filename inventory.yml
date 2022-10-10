@@ -6,6 +6,6 @@ config_context: False
 group_by:
   - device_roles
 query_filters:
-  - role: network-edge-router
+  - role: core-switch
 device_query_filters:
   - has_primary_ip: 'true'
