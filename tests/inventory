@@ -1,3 +1,4 @@
+---
 plugin: networktocode.nautobot.inventory
 api_endpoint: "{{ nautobot_url }}"
 token: "{{ nautobot_token }}"
