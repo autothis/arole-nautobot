@@ -5,7 +5,7 @@ token: "{{ nautobot_token }}"
 validate_certs: True
 config_context: False
 group_by:
-  - site
+  - device_roles
 query_filters:
   - role: core-switch
 device_query_filters:
