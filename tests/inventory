@@ -8,6 +8,5 @@ group_by:
   - site
 query_filters:
   - role: core-switch
-#device_query_filters:
-# - has_primary_ip: 'true'
-
+device_query_filters:
+ - has_primary_ip: 'true'
