@@ -6,7 +6,7 @@ validate_certs: True
 config_context: False
 group_by:
   - device_roles
-query_filters:
-  - role: core-switch
-device_query_filters:
- - has_primary_ip: 'true'
+#query_filters:
+#  - role: core-switch
+#device_query_filters:
+# - has_primary_ip: 'true'
