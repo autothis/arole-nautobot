@@ -1,5 +1,5 @@
 plugin: networktocode.nautobot.inventory
-api_endpoint: "{{ nautobot_url }}"
+api_endpoint: https://nautobot.spirit.net.au
 token: "{{ nautobot_token }}"
 validate_certs: True
 config_context: False
