@@ -45,6 +45,14 @@ tasks/create-vm-interface.yml
 - "{{ vlan_name }}"
 - "{{ datacentre }}"
 
+VLANs
+#https://nautobot-ansible.readthedocs.io/en/latest/plugins/vlan_module.html#ansible-collections-networktocode-nautobot-vlan-module
+
+- "{{ vlan_id }}"
+- "{{ vlan_name }}"
+- "{{ vlan_status }}"
+
+
 Lookup with Variables - (devices or virtual_machines)
 tasks/lookupgql_primary_ip.yml
 
