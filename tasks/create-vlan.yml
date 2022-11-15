@@ -1,0 +1,8 @@
+---
+- name: Create, Delete or Update VLAN's
+  networktocode.nautobot.vlan:
+    url: "{{ nb_url }}"
+    token: "{{ nb_token }}"
+    name: "{{ vlan_name }}"
+    vid: "{{ vlan_id }}"
+    status: "{{ vlan_status }}"
