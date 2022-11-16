@@ -16,60 +16,73 @@ A description of the settable variables for this role should go here, including 
 Input Variables
 General
 
+```yml
 - "{{ nb_url }}"
 - "{{ nb_token }}"
+```
 
 Tenant's
 tasks/create-tenant.yml
 
+```yml
 - "{{ clientcode }}" - Tenant name (could be short or full)
 - "{{ clientdescription }}" - Full Tenant name or description
+```
 
 Create vm - 
 tasks/create-vm.yml
-
-- "{{ vm_name }}"
-- "{{ vm_tag }}"
-- "{{ datacentre }}"
-- "{{ dc.cluster }}"
-- "{{ vm-size.cpu }}"
-- "{{ vm-size.memory }}"
-- "{{ vm-size.disk1-size }}"
+```yml
+"{{ vm_name }}"
+"{{ vm_tag }}"
+"{{ datacentre }}"
+"{{ dc.cluster }}"
+"{{ vm-size.cpu }}"
+"{{ vm-size.memory }}"
+"{{ vm-size.disk1-size }}"
+```
 
 VM Interfaces - (virtual machines only)
 tasks/create-vm-interface.yml
 
-- "{{ vm_name }}"
-- "{{ vm_name.interface1 }}"
-- "{{ vm_name.interface1.mode }}"
-- "{{ vlan_name }}"
-- "{{ datacentre }}"
+```yml
+"{{ vm_name }}"
+"{{ vm_name.interface1 }}"
+"{{ vm_name.interface1.mode }}"
+"{{ vlan_name }}"
+"{{ datacentre }}"
+```
 
 VLANs
 #https://nautobot-ansible.readthedocs.io/en/latest/plugins/vlan_module.html#ansible-collections-networktocode-nautobot-vlan-module
-
-- "{{ vlan_id }}"
-- "{{ vlan_name }}"
-- "{{ vlan_status }}"
-
+```yml
+"{{ vlan_id }}"
+"{{ vlan_name }}"
+"{{ vlan_status }}"
+```
 
 Lookup with Variables - (devices or virtual_machines)
 tasks/lookupgql_primary_ip.yml
-
-- "{{ nb_device_category }}" - device category
-- "{{ nb_device_role }}" - device role (slug) in nautobot
-- "{{ nb_device_status }}" - device status (slug) in nautobot. active, decommisioned, staged, planned, offline, failed
+```yml
+"{{ nb_device_category }}" - device category
+"{{ nb_device_role }}" - device role (slug) in nautobot
+"{{ nb_device_status }}" - device status (slug) in nautobot. active, decommisioned, staged, planned, offline, failed
+```
 
 Regiser values - used for display during or after automation to supply as built documentation
+```yml
 - nb_tenant - documentation
 - vm_result - exsists or not
+```
 
 Environmental Variables - Docker spin up
 Caddyfile
+```yml
 - <letsencrypt_email>
 - <nautobot_domain>
+```
 
 files/nautobotenv.env
+```yml
 - <db_password>
 - <napalm_username>
 - <napalm_password>
@@ -84,12 +97,14 @@ files/nautobotenv.env
 - <ldap_bind_password>
 - <nautobot_secret_key>
 - <nautobot_allowed_hosts>
+```
 
 Look up
+```yml
 - nautobot_url
 - nautobot_token
 - nautobot_VM_role
-
+```
 
 Dependencies
 ------------
