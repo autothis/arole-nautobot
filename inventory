@@ -2,10 +2,10 @@ plugin: networktocode.nautobot.inventory
 api_endpoint: "{{ nautobot_url }}"
 token: "{{ nautobot_token }}"
 validate_certs: True
-config_context: True
+config_context: False
 group_by:
-  - sites
+  - device_roles
 query_filters:
-  - role: "{{ nb_device_role }}"
+  - role: core-switch
 device_query_filters:
-  - has_primary_ip: 'true'
+ - has_primary_ip: 'true'
