@@ -17,16 +17,16 @@ Input Variables
 General
 
 ```yml
-- "{{ nb_url }}"
-- "{{ nb_token }}"
+"{{ nb_url }}"
+"{{ nb_token }}"
 ```
 
 Tenant's
 tasks/create-tenant.yml
 
 ```yml
-- "{{ clientcode }}" - Tenant name (could be short or full)
-- "{{ clientdescription }}" - Full Tenant name or description
+"{{ clientcode }}" - Tenant name (could be short or full)
+"{{ clientdescription }}" - Full Tenant name or description
 ```
 
 Create vm - 
