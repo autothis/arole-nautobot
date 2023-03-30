@@ -1,0 +1,40 @@
+---
+#- name: GraphQL Query build for Primary IP of devices with role "{{ nb_device_role }}"
+#  ansible.builtin.set_fact:
+#    query_"{{ nb_device_role }}": |
+#      query {
+#        devices (status: "active", has_primary_ip: true, role: ""{{ nb_device_role }}"", site: "{{ site }}"){
+#          id
+#          name
+#          platform {
+#            name
+#            napalm_driver
+#            napalm_args
+#          }
+#          primary_ip4 {
+#            address
+#          }
+#          tenant {
+#            name
+#          }
+#          site {
+#            name
+#          }
+#          tags {
+#          name
+#          }
+#        }
+#      }
+#
+#- name: Nautobot - Get Primary IP of devices with role "{{ nb_device_role }}"
+#  ansible.builtin.set_fact:
+#    "{{ nb_device_role }}"_gql_results: "{{ query('networktocode.nautobot.lookup_graphql', query_"{{ nb_device_role }}"",
+#                              url='{{ nautobot_url }}',
+#                              token='{{ nautobot_token }}',
+#                              validate_certs=false) }}"
+#
+## Strip off several layers  to allow
+#- name: Breakdown gql output to call items - "{{ nb_device_role }}"
+#  ansible.builtin.set_fact:
+#    "{{ nb_device_role }}": "{{ item.data.devices }}"
+#  loop: "{{ "{{ nb_device_role }}"_gql_results }}"
