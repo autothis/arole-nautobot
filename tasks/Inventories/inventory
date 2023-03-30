@@ -1,0 +1,28 @@
+## Example Inventory for AWX/Tower querying device roles with primary_ip addressing
+## Modify the query_filters to match your requirments
+plugin: networktocode.nautobot.inventory
+api_endpoint: "{{ nautobot_url }}"
+token: "{{ nautobot_token }}"
+validate_certs: False
+config_context: False
+group_by:
+  - device_roles
+  - sites
+  - device_roles
+  - tags
+query_filters:
+  # datacenter network
+  - role: core-router
+  - role: core-switch
+  - role: edge-firewall
+  - role: customer-firewall
+  - role: core-firewall
+  # voice
+  - role: customer-pbx
+  # hypervisors
+  - role: rhev-host
+  - role: esx-host
+  # application servers
+  - role: linux-application-server
+device_query_filters:
+ - has_primary_ip: 'true'
