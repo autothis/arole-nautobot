@@ -8,21 +8,20 @@ config_context: False
 group_by:
   - device_roles
   - sites
-  - device_roles
   - tags
 query_filters:
   # datacenter network
-  - role: core-router
-  - role: core-switch
-  - role: edge-firewall
-  - role: customer-firewall
-  - role: core-firewall
+#  - role: core-router
+#  - role: core-switch
+#  - role: edge-firewall
+#  - role: customer-firewall
+#  - role: core-firewall
   # voice
-  - role: customer-pbx
+#  - role: customer-pbx
   # hypervisors
-  - role: rhev-host
-  - role: esx-host
+#  - role: rhev-host
+#  - role: esx-host
   # application servers
-  - role: linux-application-server
+#  - role: linux-application-server
 device_query_filters:
  - has_primary_ip: 'true'
