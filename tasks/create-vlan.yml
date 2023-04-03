@@ -6,3 +6,5 @@
     name: "{{ vlan_name }}"
     vid: "{{ vlan_id }}"
     status: "{{ vlan_status }}"
+    tags:
+      - "{{ inventory_hostname }}"

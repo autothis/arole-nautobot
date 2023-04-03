@@ -1,8 +1,8 @@
 ## Example Inventory for AWX/Tower querying device roles with primary_ip addressing
 ## Modify the query_filters to match your requirments
 plugin: networktocode.nautobot.inventory
-api_endpoint: "{{ nautobot_url }}"
-token: "{{ nautobot_token }}"
+api_endpoint: https://nautobot.lab.home
+token: ThisIsNotaRealToken
 validate_certs: False
 config_context: False
 group_by:
@@ -25,3 +25,4 @@ query_filters:
 #  - role: linux-application-server
 device_query_filters:
  - has_primary_ip: 'true'
+ 
